@@ -1,0 +1,33 @@
+<!--template tags-->
+{% extends "base.html" %}
+
+{% block content %}
+
+{{title}}
+
+{{request.user}}
+
+{{request.path}}
+
+
+{{user}}
+<!-- user 정보는 default이므로 view에서는 다시 reference 할 필요가 없다. 
+user 관련 정보가 anonymous 등으로 표현 되는 이유는 settings에 들어가면 확인 가능: at 'context_processors' in Template list
+-->
+
+{{user.is_authenticated}}
+
+<!--16강-->
+<!--{% if user.is_authenticated %}
+
+<h1>User only data</h1>
+	{% for a in my_list %}
+		<li>{{a}}</li>
+	{% endfor%}-->
+{% for a in my_list %}
+		<li>{{a}}</li>
+	{% endfor%}
+
+{% endif %}
+
+{% endblock %}
